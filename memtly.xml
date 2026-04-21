@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Memtly.Community</Name>
+    <Overview>
+        Memtly is a very basic site with only one goal. It provides you and your guests a way to share memories of and leading up to an event.
+    </Overview>
+    <Description>
+        Memtly (formally WeddingShare) is a very basic site with only one goal. It provides you and your guests a way to share memories of and leading up to an event. Simply provide your guests with a link to a gallery either via a Url or even better by printing out the provided QR code and handing it out to your guests on arrival. Doing so will allow them to view your journey up to this point and give them the ability to share their experience on the day by uploading their own images and videos.
+    </Description>
+    <Changes>
+        # Release 1.0.0.2
+        * Rebranded, redisigned and restructured the backend
+    </Changes>
+    <Icon>https://raw.githubusercontent.com/Memtly/Memtly.Assets/master/Logos/Community/Memtly.png</Icon>
+    <Banner>https://raw.githubusercontent.com/Memtly/Memtly.Assets/master/Banners/buymeacoffee_community.png</Banner>
+    <Category>MediaApp:Photos MediaServer:Photos Productivity: Tools: Other: Status:Stable</Category>
+    <ExtraSearchTerms>photo album share image gallery pictures wedding event party</ExtraSearchTerms>
+    <Project>https://github.com/Memtly/Memtly.Community</Project>
+    <Support>https://github.com/Memtly/Memtly.Community/issues</Support>
+    <DonateText>BuyMeACoffee</DonateText>
+    <DonateLink>https://buymeacoffee.com/memtly</DonateLink>
+    <Licence>https://raw.githubusercontent.com/Memtly/Memtly.Community/master/LICENSE</Licence>
+    <ReadMe>https://raw.githubusercontent.com/Memtly/Memtly.Community/master/readme.md</ReadMe>
+    <TemplateURL>https://raw.githubusercontent.com/Memtly/Memtly.Unraid/master/memtly.xml</TemplateURL>
+    <Maintainer>
+        <WebPage>https://github.com/cirx08</WebPage>
+    </Maintainer>
+    <Privileged>false</Privileged>
+    <Beta>False</Beta>
+    <Repository>memtly/memtly:latest</Repository>
+    <Registry>https://hub.docker.com/r/memtly/memtly</Registry>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Latest stable release</TagDescription>
+    </Branch>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-1.jpg</Screenshot>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-2.jpg</Screenshot>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-3.jpg</Screenshot>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-4.jpg</Screenshot>
+    <WebUI>http://[IP]:[PORT:5000]/</WebUI>
+    <Networking>
+      <Mode>bridge</Mode>
+      <Publish>
+        <Port>
+          <HostPort>5000</HostPort>
+          <ContainerPort>5000</ContainerPort>
+          <Protocol>tcp</Protocol>
+        </Port>
+      </Publish>
+    </Networking>
+    <Data>
+      <Volume>
+        <HostDir>/mnt/user/appdata/Memtly/config</HostDir>
+        <ContainerDir>/app/config</ContainerDir>
+        <Mode>rw</Mode>
+      </Volume>
+      <Volume>
+        <HostDir>/mnt/user/appdata/Memtly/uploads</HostDir>
+        <ContainerDir>/app/uploads</ContainerDir>
+        <Mode>rw</Mode>
+      </Volume>
+      <Volume>
+        <HostDir>/mnt/user/appdata/Memtly/thumbnails</HostDir>
+        <ContainerDir>/app/thumbnails</ContainerDir>
+        <Mode>rw</Mode>
+      </Volume>
+      <Volume>
+        <HostDir>/mnt/user/appdata/Memtly/custom_resources</HostDir>
+        <ContainerDir>/app/custom_resources</ContainerDir>
+        <Mode>rw</Mode>
+      </Volume>
+    </Data>
+    <Environment>
+      <Variable>
+        <Name>TITLE</Name>
+        <Value>Memtly</Value>
+        <Mode/>
+      </Variable>
+      <Variable>
+        <Name>DATABASE_TYPE</Name>
+        <Value>sqlite</Value>
+        <Mode/>
+      </Variable>
+      <Variable>
+        <Name>DATABASE_CONNECTION_STRING</Name>
+        <Value>Data Source=./config/memtly.db</Value>
+        <Mode/>
+      </Variable>
+      <Variable>
+        <Name>ACCOUNT_ADMIN_PASSWORD</Name>
+        <Value>ChangeMe</Value>
+        <Mode/>
+      </Variable>
+      <Variable>
+        <Name>SECURITY_ENCRYPTION_KEY</Name>
+        <Value>ChangeMe</Value>
+        <Mode/>
+      </Variable>
+      <Variable>
+        <Name>SECURITY_ENCRYPTION_SALT</Name>
+        <Value>ChangeMe</Value>
+        <Mode/>
+      </Variable>
+    </Environment>
+    <Config Name="Port" Target="5000" Default="5000" Mode="tcp" Description="Port used to connect to the web UI" Type="Port" Display="always-hide" Required="false" Mask="false">5000</Config>
+    <Config Name="Title" Target="TITLE" Default="Memtly" Description="Application title to appear in headers" Type="Variable" Display="always-hide" Required="false" Mask="false">Memtly</Config>
+    <Config Name="Database Type" Target="DATABASE_TYPE" Default="sqlite" Description="The type of database backend to use" Type="Variable" Display="always-hide" Required="false" Mask="false">sqlite</Config>
+    <Config Name="Database Connection String" Target="DATABASE_CONNECTION_STRING" Default="Data Source=./config/memtly.db" Description="The connection string for the database backend" Type="Variable" Display="always-hide" Required="false" Mask="false">Data Source=./config/memtly.db</Config>
+    <Config Name="Admin Password" Target="ACCOUNT_ADMIN_PASSWORD" Default="ChangeMe" Description="The password of the primary admin account" Type="Variable" Display="always-hide" Required="false" Mask="true">ChangeMe</Config>
+    <Config Name="Encryption Key" Target="SECURITY_ENCRYPTION_KEY" Default="ChangeMe" Description="The key used to encrypt data" Type="Variable" Display="always-hide" Required="false" Mask="true">ChangeMe</Config>
+    <Config Name="Encryption Salt" Target="SECURITY_ENCRYPTION_SALT" Default="ChangeMe" Description="The salt used to randomize the encryption" Type="Variable" Display="always-hide" Required="false" Mask="true">ChangeMe</Config>
+    <Config Name="Config Path" Target="/app/config" Mode="rw" Default="/mnt/user/appdata/Memtly/config" Description="Path to configuration related data" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/Memtly/config</Config>
+    <Config Name="Uploads Path" Target="/app/uploads" Mode="rw" Default="/mnt/user/appdata/Memtly/uploads" Description="Path to gallery images" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/Memtly/uploads</Config>
+    <Config Name="Thumbnails Path" Target="/app/thumbnails" Mode="rw" Default="/mnt/user/appdata/Memtly/thumbnails" Description="Path to image thumbnails" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/Memtly/thumbnails</Config>
+    <Config Name="Custom Resources Path" Target="/app/custom_resources" Mode="rw" Default="/mnt/user/appdata/Memtly/custom_resources" Description="Path to custom uploaded resource files" Type="Path" Display="advanced-hide" Required="true" Mask="false">/mnt/user/appdata/Memtly/custom_resources</Config>    
+</Container>
