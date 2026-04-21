@@ -33,10 +33,10 @@
         <Tag>latest</Tag>
         <TagDescription>Latest stable release</TagDescription>
     </Branch>
-    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-1.jpg</Screenshot>
-    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-2.jpg</Screenshot>
-    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-3.jpg</Screenshot>
-    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-4.jpg</Screenshot>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-1.png</Screenshot>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-2.png</Screenshot>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-3.png</Screenshot>
+    <Screenshot>https://cdn.jsdelivr.net/gh/Memtly/Memtly.Unraid@master/screenshots/screenshot-4.png</Screenshot>
     <WebUI>http://[IP]:[PORT:5000]/</WebUI>
     <Networking>
       <Mode>bridge</Mode>
